@@ -6,11 +6,11 @@
 #    By: corellan <corellan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/31 17:02:14 by corellan          #+#    #+#              #
-#    Updated: 2023/06/01 12:26:22 by corellan         ###   ########.fr        #
+#    Updated: 2023/06/01 12:26:34 by corellan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = fixed00
+NAME = fixed01
 
 SRC = Fixed.cpp main.cpp
 
