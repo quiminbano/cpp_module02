@@ -6,7 +6,7 @@
 /*   By: corellan <corellan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 10:32:36 by corellan          #+#    #+#             */
-/*   Updated: 2023/06/01 15:00:26 by corellan         ###   ########.fr       */
+/*   Updated: 2023/06/02 14:53:27 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ Fixed::Fixed(int const i)
 
 Fixed::Fixed(float const f)
 {
-	this->setRawBits((int)(f * (float)(1 << Fixed::_FractBits) + (f >= 0 ? 0.5 : (- 0.5))));
+	this->setRawBits(static_cast<int>(f * static_cast<float>(1 << Fixed::_FractBits) + (f >= 0 ? 0.5 : (- 0.5))));
 	std::cout << "Float constructor called." << std::endl;
 	return ;
 }
@@ -63,7 +63,7 @@ int		Fixed::toInt(void) const
 
 float	Fixed::toFloat(void) const
 {
-	return (((float)this->getRawBits()) / (float)(1 << Fixed::_FractBits));
+	return ((static_cast<float>(this->getRawBits())) / static_cast<float>(1 << Fixed::_FractBits));
 }
 
 Fixed	&Fixed::operator=(Fixed const &rhs)

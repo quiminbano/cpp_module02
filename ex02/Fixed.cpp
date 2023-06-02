@@ -6,7 +6,7 @@
 /*   By: corellan <corellan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 10:32:36 by corellan          #+#    #+#             */
-/*   Updated: 2023/06/01 15:47:09 by corellan         ###   ########.fr       */
+/*   Updated: 2023/06/02 14:48:56 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ Fixed::Fixed(int const i)
 
 Fixed::Fixed(float const f)
 {
-	this->setRawBits((int)(f * (float)(1 << Fixed::_FractBits) + (f >= 0 ? 0.5 : (- 0.5))));
+	this->setRawBits(static_cast<int>(f * static_cast<float>(1 << Fixed::_FractBits) + (f >= 0 ? 0.5 : (- 0.5))));
 	return ;
 }
 
@@ -58,7 +58,7 @@ int		Fixed::toInt(void) const
 
 float	Fixed::toFloat(void) const
 {
-	return (((float)this->getRawBits()) / (float)(1 << Fixed::_FractBits));
+	return ((static_cast<float>(this->getRawBits())) / static_cast<float>(1 << Fixed::_FractBits));
 }
 
 Fixed	&Fixed::operator=(Fixed const &rhs)
@@ -69,23 +69,145 @@ Fixed	&Fixed::operator=(Fixed const &rhs)
 	return (*this);
 }
 
+Fixed	&Fixed::operator++(void)
+{
+	this->setRawBits(this->_number + 1);
+	return (*this);
+}
+
+Fixed	Fixed::operator++(int)
+{
+	Fixed	temp;
+
+	temp = *this;
+	this->setRawBits(this->_number + 1);
+	return (temp);
+}
+
+Fixed	&Fixed::operator--(void)
+{
+	this->setRawBits(this->_number - 1);
+	return (*this);
+}
+
+Fixed	Fixed::operator--(int)
+{
+	Fixed	temp;
+
+	temp = *this;
+	this->setRawBits(this->_number - 1);
+	return (temp);
+}
+
+bool	Fixed::operator==(Fixed const &rhs)
+{
+	if (this->getRawBits() == rhs.getRawBits())
+		return (true);
+	else
+		return (false);
+}
+
+bool	Fixed::operator!=(Fixed const &rhs)
+{
+	if (this->getRawBits() != rhs.getRawBits())
+		return (true);
+	else
+		return (false);
+}
+
+bool	Fixed::operator>(Fixed const &rhs)
+{
+	if (this->getRawBits() > rhs.getRawBits())
+		return (true);
+	else
+		return (false);
+}
+
+bool	Fixed::operator<(Fixed const &rhs)
+{
+	if (this->getRawBits() < rhs.getRawBits())
+		return (true);
+	else
+		return (false);
+}
+
+bool	Fixed::operator>=(Fixed const &rhs)
+{
+	if (this->getRawBits() >= rhs.getRawBits())
+		return (true);
+	else
+		return (false);
+}
+
+bool	Fixed::operator<=(Fixed const &rhs)
+{
+	if (this->getRawBits() <= rhs.getRawBits())
+		return (true);
+	else
+		return (false);
+}
+
 Fixed	Fixed::operator+(Fixed const &rhs)
 {
-	return (this->toFloat() + rhs.toFloat());
+	int	result;
+
+	result = this->getRawBits() + rhs.getRawBits();
+	return ((static_cast<float>(result)) / static_cast<float>(1 << Fixed::_FractBits));
 }
 
 Fixed	Fixed::operator-(Fixed const &rhs)
 {
-	return (this->toFloat() - rhs.toFloat());
+	int	result;
+
+	result = this->getRawBits() - rhs.getRawBits();
+	return ((static_cast<float>(result)) / static_cast<float>(1 << Fixed::_FractBits));
 }
 
 Fixed	Fixed::operator*(Fixed const &rhs)
 {
-	return (this->toFloat() * rhs.toFloat());
+	int	result;
+
+	result = this->getRawBits() * rhs.getRawBits();
+	return ((static_cast<float>(result)) / static_cast<float>(1 << (2 * Fixed::_FractBits)));
 }
 Fixed	Fixed::operator/(Fixed const &rhs)
 {
-	return (this->toFloat() / rhs.toFloat());
+	int	result;
+
+	result = ((this->getRawBits() * (1 << Fixed::_FractBits)) / (rhs.getRawBits()));
+	return ((static_cast<float>(result)) / static_cast<float>(1 << Fixed::_FractBits));
+}
+
+Fixed	&Fixed::min(Fixed &a, Fixed &b)
+{
+	if (a < b)
+		return (a);
+	else
+		return (b);
+}
+
+Fixed const	&Fixed::min(Fixed const &a, Fixed const &b)
+{
+	if (static_cast<Fixed>(a) < static_cast<Fixed>(b))
+		return (a);
+	else
+		return (b);
+}
+
+Fixed	&Fixed::max(Fixed &a, Fixed &b)
+{
+	if (a > b)
+		return (a);
+	else
+		return (b);
+}
+
+Fixed const	&Fixed::max(Fixed const &a, Fixed const &b)
+{
+	if (static_cast<Fixed>(a) > static_cast<Fixed>(b))
+		return (a);
+	else
+		return (b);
 }
 
 std::ostream	&operator<<(std::ostream &o, Fixed const &rhs)

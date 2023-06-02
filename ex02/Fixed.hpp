@@ -6,7 +6,7 @@
 /*   By: corellan <corellan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 10:03:43 by corellan          #+#    #+#             */
-/*   Updated: 2023/06/01 20:19:42 by corellan         ###   ########.fr       */
+/*   Updated: 2023/06/02 13:07:08 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,10 @@ public:
 	Fixed	operator-(Fixed const &rhs);
 	Fixed	operator*(Fixed const &rhs);
 	Fixed	operator/(Fixed const &rhs);
+	Fixed	&operator++(void);
+	Fixed	operator++(int);
+	Fixed	&operator--(void);
+	Fixed	operator--(int);
 	bool	operator==(Fixed const &rhs);
 	bool	operator!=(Fixed const &rhs);
 	bool	operator>(Fixed const &rhs);
@@ -41,6 +45,11 @@ public:
 	void	setRawBits(int const raw);
 	int		toInt(void) const;
 	float	toFloat(void) const;
+
+	static Fixed		&min(Fixed &a, Fixed &b);
+	static Fixed const	&min(Fixed const &a, Fixed const &b);
+	static Fixed		&max(Fixed &a, Fixed &b);
+	static Fixed const	&max(Fixed const &a, Fixed const &b);
 
 private:
 
