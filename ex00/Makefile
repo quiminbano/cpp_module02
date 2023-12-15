@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: corellan <corellan@student.42.fr>          +#+  +:+       +#+         #
+#    By: corellan <corellan@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/31 17:02:14 by corellan          #+#    #+#              #
-#    Updated: 2023/06/01 12:26:22 by corellan         ###   ########.fr        #
+#    Updated: 2023/12/15 14:58:12 by corellan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 

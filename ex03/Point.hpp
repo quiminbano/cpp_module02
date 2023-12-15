@@ -1,38 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   Point.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: corellan <corellan@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/31 10:03:43 by corellan          #+#    #+#             */
-/*   Updated: 2023/12/15 14:58:07 by corellan         ###   ########.fr       */
+/*   Created: 2023/12/15 15:05:18 by corellan          #+#    #+#             */
+/*   Updated: 2023/12/15 15:59:10 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-# define FIXED_HPP
+#ifndef POINT_HPP
+# define POINT_HPP
 
-# include <iostream>
+# include "Fixed.hpp"
+# include <cmath>
 
-class Fixed
+class	Point
 {
 public:
 
-	Fixed(void);
-	Fixed(Fixed const &rhs);
-	~Fixed(void);
+	Point(void);
+	Point(float const xComing, float const yComing);
+	Point(Point const &rhs);
+	~Point(void);
 
-	Fixed	&operator=(Fixed const &rhs);
+	Point	&operator=(Point const &rhs);
 
-	int		getRawBits(void) const;
-	void	setRawBits(int const raw);
+	const Fixed	&getX(void) const;
+	const Fixed	&getY(void) const;
 
 private:
 
-	int			_number;
+	Fixed const	x;
+	Fixed const y;
 
-	static int	_FractBits;
 };
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: corellan <corellan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: corellan <corellan@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 16:53:44 by corellan          #+#    #+#             */
-/*   Updated: 2023/06/02 14:01:24 by corellan         ###   ########.fr       */
+/*   Updated: 2023/12/15 15:02:03 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,15 @@ int	main(void)
 
 	std::cout << Fixed::max(a, b) << std::endl;
 
+	std::cout << std::endl << std::endl << "++++++++++++++++++++++++++++++++++++++++++  EXTRA TESTING  ++++++++++++++++++++++++++++++++++++++++++" << std::endl << std::endl;
+	std::cout << "The value of a is " << a << ". The value of b is " << b << ". The value of a + b the first time is " << (a + b) << std::endl;
+	std::cout << "The value of a is " << a << ". The value of b is " << b << ". The value of a + b the second time is " << (a + b) << std::endl;
+	std::cout << "The value of a is " << a << ". The value of b is " << b << ". The value of a - b the first time is " << (a - b) << std::endl;
+	std::cout << "The value of a is " << a << ". The value of b is " << b << ". The value of a - b the second time is " << (a - b) << std::endl;
+	std::cout << "The value of a is " << a << ". The value of b is " << b << ". The value of a * b the first time is " << (a * b) << std::endl;
+	std::cout << "The value of a is " << a << ". The value of b is " << b << ". The value of a * b the second time is " << (a * b) << std::endl;
+	std::cout << "The value of a is " << a << ". The value of b is " << b << ". The value of a / b the first time is " << (a / b) << std::endl;
+	std::cout << "The value of a is " << a << ". The value of b is " << b << ". The value of a / b the second time is " << (a / b) << std::endl;
+	std::cout << std::endl << "+++++++++++++++++++++++++++++++++++++++++  END OF TESTING  ++++++++++++++++++++++++++++++++++++++++++" << std::endl << std::endl;
 	return (0);
 }

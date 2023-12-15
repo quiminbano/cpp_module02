@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: corellan <corellan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: corellan <corellan@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 10:32:36 by corellan          #+#    #+#             */
-/*   Updated: 2023/06/02 14:53:27 by corellan         ###   ########.fr       */
+/*   Updated: 2023/12/15 14:36:55 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ Fixed::Fixed(void) : _number(0)
 Fixed::Fixed(Fixed const &rhs)
 {
 	std::cout << "Copy constructor called." << std::endl;
-	*this = rhs;
+	if (this != &rhs)
+		*this = rhs;
 	return ;
 }
 

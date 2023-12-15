@@ -6,13 +6,13 @@
 #    By: corellan <corellan@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/31 17:02:14 by corellan          #+#    #+#              #
-#    Updated: 2023/12/15 14:58:29 by corellan         ###   ########.fr        #
+#    Updated: 2023/12/15 16:50:30 by corellan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = fixed02
+NAME = bsp
 
-SRC = Fixed.cpp main.cpp
+SRC = Fixed.cpp main.cpp Point.cpp bsp.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
