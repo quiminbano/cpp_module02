@@ -6,7 +6,7 @@
 /*   By: corellan <corellan@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 10:32:36 by corellan          #+#    #+#             */
-/*   Updated: 2023/12/15 14:50:17 by corellan         ###   ########.fr       */
+/*   Updated: 2023/12/15 20:07:24 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,7 +175,7 @@ Fixed	Fixed::operator/(Fixed const &rhs)
 {
 	Fixed	temp;
 
-	temp.setRawBits((this->getRawBits() / rhs.getRawBits()) * (1 << Fixed::_FractBits));
+	temp.setRawBits((this->getRawBits() * (1 << Fixed::_FractBits)) / rhs.getRawBits());
 	return (temp);
 }
 
